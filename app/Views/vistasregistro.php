@@ -56,13 +56,20 @@
   </header>
   
   <body class="text-center">
-  
     <form class="form-signin" method="POST" action="<?php echo(base_url('public/animales/registro')) ?>" enctype="multipart/form-data">
     <a class="btn btn-lg btn-danger btn-block" href="<?php echo(base_url('public/indexani')) ?>">Home</a>
     <br>
     <br>
     <br>
   <img class="mb-4" src="<?php echo(base_url('public/img/animalresg.png')) ?>" alt="animales" width="100" height="72">
+  <?php if(session('mensaje')):?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <?php echo(session('mensaje')) ?>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+      <?php endif ?>
   <h1 class="h3 mb-3 font-weight-normal">Por favor, registra tu mascota o fauna</h1>
           <label for="nombre" class="sr-only">Nombre del animal</label>
           <input type="text" id="nombre" class="form-control" placeholder="Nombre del animal" required autofocus name="nombre">

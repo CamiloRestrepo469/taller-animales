@@ -43,10 +43,22 @@
 <br>
 
     <div class="container">
-        <?php
-    
-
-        ?>
+                        <?php if(session('editado')):?>
+                            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                            <?php echo(session('editado')) ?>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                          <?php endif ?>
+                        <?php if(session('eliminado')):?>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <?php echo(session('eliminado')) ?>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                          <?php endif ?>
         <div class="row row-cols-1 row-cols-md-3">
        
         <?php foreach($usuarios as $usuario):?>
@@ -60,7 +72,9 @@
                         <p class="card-text"><?= $usuario["descripcion"] ?></p>
                         <p class="card-text"><?= $usuario["comida"] ?></p>
                         <p class="card-text"><?= $usuario["raza"] ?></p>
-                        <a href="<?php echo(base_url("public/animales/eliminar/".$usuario['id'])) ?>" class="btn btn-danger">Eliminar</a>
+                        <a href="<?php echo(base_url("public/animales/eliminar/".$usuario['id'])) ?>" 
+                        class="btn btn-danger">Eliminar</a>
+                        
                         <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editar<?php echo($usuario["id"])?>">
                                 Editar
                             </button>
@@ -118,6 +132,7 @@
 
 
         <?php endforeach ?>
+                         
 
 
         </div>

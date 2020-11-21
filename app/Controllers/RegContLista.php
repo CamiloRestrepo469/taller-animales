@@ -4,7 +4,7 @@ class RegContLista extends BaseController
 {
 	public function vistalistado()
 	{
-		return view('vistalistado');
+		return view('vistaindex');
 	}
 
 	//--------------------------------------------------------------------
